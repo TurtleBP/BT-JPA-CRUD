@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+	version="6.0">
+
+	<display-name>BT-JPA-CRUD-Sitemesh</display-name>
+
+	<!-- Welcome -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- SiteMesh 3 filter -->
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- No-cache (ngăn back sau logout thấy cache) -->
+	<filter>
+		<filter-name>NoCacheFilter</filter-name>
+		<filter-class>none.filters.NoCacheFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>NoCacheFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- Auth bắt buộc cho các trang cần login (profile, ...) -->
+	<filter>
+		<filter-name>AuthFilter</filter-name>
+		<filter-class>none.filters.AuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/profile</url-pattern>
+	</filter-mapping>
+
+	<!-- Chỉ ADMIN mới vào /admin/* -->
+	<filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>none.filters.AdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>HomeServlet</servlet-name>
+		<servlet-class>none.controllers.HomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminHomeServlet</servlet-name>
+		<servlet-class>none.controllers.AdminHomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminHomeServlet</servlet-name>
+		<url-pattern>/home-admin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>none.controllers.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>none.controllers.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>none.controllers.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ImageServlet</servlet-name>
+		<servlet-class>none.controllers.ImageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImageServlet</servlet-name>
+		<url-pattern>/image</url-pattern>
+	</servlet-mapping>
+	<!-- Profile -->
+	<servlet>
+		<servlet-name>ProfileServlet</servlet-name>
+		<servlet-class>none.controllers.ProfileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProfileServlet</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+
+	<!-- Admin CRUD -->
+	<servlet>
+		<servlet-name>CategoryController</servlet-name>
+		<servlet-class>none.controllers.admin.CategoryController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CategoryController</servlet-name>
+		<url-pattern>/admin-category/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>VideoController</servlet-name>
+		<servlet-class>none.controllers.admin.VideoController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VideoController</servlet-name>
+		<url-pattern>/admin-video/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>

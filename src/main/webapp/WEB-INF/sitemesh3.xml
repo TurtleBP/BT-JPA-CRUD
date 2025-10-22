@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+	<mapping path="/admin/*" name="admin"
+		decorator="/admin.jsp" />
+	<mapping path="/*" name="web"
+		decorator="/web.jsp" />
+
+
+	<!-- exclude -->
+	<mapping path="/assets/*" exclude="true" />
+	<mapping path="/static/*" exclude="true" />
+	<mapping path="/image" exclude="true" />
+	<mapping path="/login" exclude="true" />
+	<mapping path="/register" exclude="true" />
+</sitemesh>
