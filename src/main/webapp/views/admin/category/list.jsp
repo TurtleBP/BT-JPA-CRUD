@@ -12,7 +12,7 @@
 <div class="container py-4">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/home-admin">Admin</a></li>
+      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/home/admin">Admin</a></li>
       <li class="breadcrumb-item active" aria-current="page">Category</li>
     </ol>
   </nav>
@@ -20,7 +20,7 @@
   <div class="card shadow-sm mb-4">
     <div class="card-body">
       <h5 class="card-title">Bộ lọc</h5>
-      <form class="row g-2" method="get" action="${pageContext.request.contextPath}/admin-category">
+      <form class="row g-2" method="get" action="${pageContext.request.contextPath}/admin/category">
         <div class="col-md-4">
           <label class="form-label">Tên/Code</label>
           <input name="q" value="${param.q}" class="form-control" placeholder="Nhập tên hoặc code"/>
@@ -35,7 +35,7 @@
         </div>
         <div class="col-md-3 align-self-end">
           <button class="btn btn-primary me-2">Lọc</button>
-          <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin-category">Xoá lọc</a>
+          <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin/category">Xoá lọc</a>
         </div>
       </form>
     </div>
@@ -77,8 +77,8 @@
             </span>
           </td>
           <td>
-            <a class="btn btn-sm btn-warning" href="${pageContext.request.contextPath}/admin-category/edit?id=${item.id}">Sửa</a>
-            <form class="d-inline" method="post" action="${pageContext.request.contextPath}/admin-category/delete"
+            <a class="btn btn-sm btn-warning" href="${pageContext.request.contextPath}/admin/category/edit?id=${item.id}">Sửa</a>
+            <form class="d-inline" method="post" action="${pageContext.request.contextPath}/admin/category/delete"
                   onsubmit="return confirm('Xoá category này?')">
               <input type="hidden" name="id" value="${item.id}"/>
               <button class="btn btn-sm btn-danger">Xoá</button>

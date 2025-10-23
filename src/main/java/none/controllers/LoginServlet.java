@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
     session.setAttribute("account", user);
     session.setMaxInactiveInterval(30*60);
 
-    if (user.getRoleId()!=null && user.getRoleId()==1) resp.sendRedirect(req.getContextPath()+"/home-admin");
+    if (user.getRoleId()!=null && user.getRoleId()==1) resp.sendRedirect(req.getContextPath()+"/admin/home");
     else resp.sendRedirect(req.getContextPath()+"/home");
   }
   private boolean isBlank(String s){ return s==null || s.isBlank(); }

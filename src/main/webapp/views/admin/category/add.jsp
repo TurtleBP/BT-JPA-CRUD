@@ -3,7 +3,7 @@
 <div class="card shadow-sm">
   <div class="card-body">
     <h5 class="card-title">Thêm mới Category</h5>
-    <form method="post" action="${pageContext.request.contextPath}/admin-category/create"
+    <form method="post" action="${pageContext.request.contextPath}/admin/category/create"
           enctype="multipart/form-data" novalidate>
       <div class="row g-3">
         <div class="col-md-5">

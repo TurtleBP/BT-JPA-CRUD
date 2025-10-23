@@ -11,8 +11,8 @@
 <div class="container py-4">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/home-admin">Admin</a></li>
-      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin-video">Video</a></li>
+      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/home/admin">Admin</a></li>
+      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin/video">Video</a></li>
       <li class="breadcrumb-item active" aria-current="page">Sửa</li>
     </ol>
   </nav>
@@ -20,7 +20,7 @@
   <div class="card shadow-sm">
     <div class="card-body">
       <h5 class="card-title">Sửa Video #${video.videoId}</h5>
-      <form method="post" action="${pageContext.request.contextPath}/admin-video/update"
+      <form method="post" action="${pageContext.request.contextPath}/admin/video/update"
             enctype="multipart/form-data" novalidate>
         <input type="hidden" name="videoId" value="${video.videoId}"/>
 
@@ -70,7 +70,7 @@
 
         <div class="d-flex gap-2 mt-3">
           <button class="btn btn-primary">Cập nhật</button>
-          <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin-video">Huỷ</a>
+          <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin/video">Huỷ</a>
         </div>
       </form>
     </div>

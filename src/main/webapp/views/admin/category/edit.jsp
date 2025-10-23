@@ -11,8 +11,8 @@
 <div class="container py-4">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/home-admin">Admin</a></li>
-      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin-category">Category</a></li>
+      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/home/admin">Admin</a></li>
+      <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin/category">Category</a></li>
       <li class="breadcrumb-item active" aria-current="page">Sửa</li>
     </ol>
   </nav>
@@ -20,7 +20,7 @@
   <div class="card shadow-sm">
     <div class="card-body">
       <h5 class="card-title">Sửa Category #${category.id}</h5>
-      <form method="post" action="${pageContext.request.contextPath}/admin-category/update"
+      <form method="post" action="${pageContext.request.contextPath}/admin/category/update"
             enctype="multipart/form-data" novalidate>
         <input type="hidden" name="id" value="${category.id}"/>
         <div class="row g-3">
@@ -58,7 +58,7 @@
         </div>
         <div class="d-flex gap-2 mt-3">
           <button class="btn btn-primary">Cập nhật</button>
-          <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin-category">Huỷ</a>
+          <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin/category">Huỷ</a>
         </div>
       </form>
     </div>

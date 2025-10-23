@@ -5,26 +5,42 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Trang chủ</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container py-4">
+  <c:set var="ctx" value="${pageContext.request.contextPath}" />
+
   <div class="p-4 bg-white shadow-sm rounded">
-    <h4 class="mb-3">Trang chủ</h4>
+    <h3 class="mb-3">Trang chủ</h3>
+
     <c:choose>
-      <c:when test="${not empty sessionScope.account && sessionScope.account.roleId==1}">
-        <p class="mb-3">Xin chào Admin <b>${sessionScope.account.fullName}</b>.</p>
+      <c:when test="${not empty sessionScope.account && sessionScope.account.roleId == 1}">
+        <p class="mb-3">
+          Xin chào Admin <b>${sessionScope.account.fullName}</b>!
+        </p>
         <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/profile">Profile</a>
-          <a class="btn btn-outline-success" href="${pageContext.request.contextPath}/admin-category">Quản lý Sản phẩm (Category)</a>
-          <a class="btn btn-outline-info" href="${pageContext.request.contextPath}/admin-video">Quản lý Video</a>
-          <a class="btn btn-danger" href="${pageContext.request.contextPath}/logout">Đăng xuất</a>
+          <a class="btn btn-outline-primary" href="${ctx}/profile">Profile</a>
+          <a class="btn btn-outline-secondary" href="${ctx}/admin/home">Vào khu Admin</a>
+          <a class="btn btn-danger" href="${ctx}/logout">Đăng xuất</a>
         </div>
       </c:when>
+
+      <c:when test="${not empty sessionScope.account}">
+        <p class="mb-3">
+          Xin chào <b>${sessionScope.account.fullName}</b>!
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-outline-primary" href="${ctx}/profile">Profile</a>
+          <a class="btn btn-danger" href="${ctx}/logout">Đăng xuất</a>
+        </div>
+      </c:when>
+
       <c:otherwise>
-        <p class="mb-3">Xin chào <b>${sessionScope.account!=null?sessionScope.account.fullName:"bạn"}</b>.</p>
-        <div class="d-flex gap-2">
-          <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/profile">Profile</a>
+        <p class="mb-3">Bạn chưa đăng nhập.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-primary" href="${ctx}/login">Đăng nhập</a>
+          <a class="btn btn-outline-secondary" href="${ctx}/register">Đăng ký</a>
         </div>
       </c:otherwise>
     </c:choose>

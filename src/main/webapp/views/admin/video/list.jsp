@@ -20,7 +20,7 @@
   <div class="card shadow-sm mb-4">
     <div class="card-body">
       <h5 class="card-title">Bộ lọc</h5>
-      <form class="row g-2" method="get" action="${pageContext.request.contextPath}/admin-video">
+      <form class="row g-2" method="get" action="${pageContext.request.contextPath}/admin/video">
         <div class="col-md-4">
           <label class="form-label">Từ khoá (ID / Title / Mô tả)</label>
           <input name="q" value="${param.q}" class="form-control" placeholder="Nhập từ khoá"/>
@@ -44,7 +44,7 @@
         </div>
         <div class="col-md-3 align-self-end">
           <button class="btn btn-primary me-2">Lọc</button>
-          <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin-video">Xoá lọc</a>
+          <a class="btn btn-outline-secondary" href="${pageContext.request.contextPath}/admin/video">Xoá lọc</a>
         </div>
       </form>
     </div>
@@ -81,8 +81,8 @@
           <td><span class="badge ${v.active?'bg-success':'bg-secondary'}">${v.active?'On':'Off'}</span></td>
           <td>${v.views}</td>
           <td>
-            <a class="btn btn-sm btn-warning" href="${pageContext.request.contextPath}/admin-video/edit?id=${v.videoId}">Sửa</a>
-            <form class="d-inline" method="post" action="${pageContext.request.contextPath}/admin-video/delete"
+            <a class="btn btn-sm btn-warning" href="${pageContext.request.contextPath}/admin/video/edit?id=${v.videoId}">Sửa</a>
+            <form class="d-inline" method="post" action="${pageContext.request.contextPath}/admin/video/delete"
                   onsubmit="return confirm('Xoá video này?')">
               <input type="hidden" name="id" value="${v.videoId}"/>
               <button class="btn btn-sm btn-danger">Xoá</button>
